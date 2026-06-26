@@ -1,0 +1,21 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build:wasm": "wasm-pack build wasm --target nodejs --out-dir ../pkg",
+    "build:js": "terser src/index.js -o index.js -c -m",
+    "build": "npm run build:wasm && npm run build:js",
+    "encrypt": "node scripts/encrypt-package.cjs",
+    "start:wasm": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "javy-cli": "^3.0.1",
+    "terser": "^5.44.0"
+  }
+}
